@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Syringe Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Automated Syringe Controller</h2>
+    <p class="warning">⚠️ SAFETY-CRITICAL SYSTEM: ERROR TOLERANT DESIGN</p>
+    
+    <div class="digit-group">
+        <div class="column">
+            <button onclick="change(0, 1)">▲</button>
+            <div id="d0" class="digit">0</div>
+            <button onclick="change(0, -1)">▼</button>
+        </div>
+        <div class="column">
+            <button onclick="change(1, 1)">▲</button>
+            <div id="d1" class="digit">0</div>
+            <button onclick="change(1, -1)">▼</button>
+        </div>
+        <div class="column">
+            <button onclick="change(2, 1)">▲</button>
+            <div id="d2" class="digit">0</div>
+            <button onclick="change(2, -1)">▼</button>
+        </div>
+        <div class="column">
+            <button onclick="change(3, 1)">▲</button>
+            <div id="d3" class="digit">0</div>
+            <button onclick="change(3, -1)">▼</button>
+        </div>
+    </div>
+
+    <div class="total-display">
+        Current Dose: <span id="total">0000</span> mg
+    </div>
+    
+    <button class="confirm-btn" onclick="confirmDose()">PROCEED TO INJECTION</button>
+</div>
+
+<script>
+    let digits = [0, 0, 0, 0];
+
+    function change(idx, val) {
+        // Keeps digit between 0-9
+        digits[idx] = (digits[idx] + val + 10) % 10;
+        document.getElementById('d' + idx).innerText = digits[idx];
+        document.getElementById('total').innerText = digits.join('');
+    }
+
+    function confirmDose() {
+        const finalDose = digits.join('');
+        alert("CRITICAL CHECK: Are you sure you want to inject " + finalDose + " mg?");
+    }
+</script>
+
+</body>
+</html>
