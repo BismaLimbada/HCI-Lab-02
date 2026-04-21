@@ -1,89 +1,94 @@
-:root {
-    --bg-color: #f3f4f6;
-    --primary-blue: #2563eb;
-    --danger-red: #dc2626;
-    --text-dark: #1f2937;
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
+/* 1. Basic Setup */
 body {
-    background-color: var(--bg-color);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #e2e8f0; /* Light gray background */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
 }
 
-.main-container {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Header Section */
-.header-section { text-align: center; margin-bottom: 10px; }
-.header-section h1 { color: var(--text-dark); font-size: 24px; margin: 0; }
-.header-section p { color: #6b7280; font-size: 14px; margin-top: 5px; }
-
-/* Control Card Logic */
-.control-card {
+/* 2. Main Container */
+.main-card {
     background: white;
-    padding: 24px;
-    border-radius: 16px;
-    box-shadow: var(--card-shadow);
-}
-.control-card h3 { font-size: 14px; color: #4b5563; text-transform: uppercase; margin-bottom: 20px; text-align: center; }
-
-.digit-row { display: flex; justify-content: center; gap: 12px; }
-.digit-module { display: flex; flex-direction: column; gap: 8px; align-items: center; }
-
-.adj-btn {
-    width: 50px;
-    height: 45px;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.2s;
-    background: #f9fafb;
-    color: var(--text-dark);
-    border: 1px solid #e5e7eb;
-}
-.adj-btn:hover { background: #f3f4f6; border-color: var(--primary-blue); color: var(--primary-blue); }
-
-.digit-val {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--text-dark);
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(22, 1, 22, 0.1);
+    overflow: hidden;
 }
 
-/* Summary Card Logic */
-.summary-card {
-    background: #eff6ff;
-    border: 2px solid #dbeafe;
+/* 3. Header */
+.header {
+    background: #3d0843; 
+    color: white;
     padding: 20px;
-    border-radius: 16px;
     text-align: center;
 }
-.label { font-size: 11px; font-weight: 700; color: var(--primary-blue); letter-spacing: 1px; }
-.dose-display { font-size: 44px; font-weight: 900; color: var(--primary-blue); }
-.dose-display small { font-size: 16px; font-weight: 500; }
 
-/* Action Card Logic */
-.confirm-btn {
+.header h1 { margin: 0; font-size: 1.2rem; }
+.header p { margin: 5px 0 0; font-size: 0.8rem; opacity: 0.7; }
+
+.content { padding: 25px; }
+
+/* 4. Digit Controls */
+.digit-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+
+.digit-group { text-align: center; }
+
+.number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.btn {
+    padding: 8px 15px;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover { background: #682180; color: white; }
+
+/* 5. Display Area */
+.display-area {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.display-area label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #81648b;
+}
+
+.total-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #3d0843;
+}
+
+/* 6. Injection Button */
+.inject-btn {
     width: 100%;
-    padding: 18px;
-    background: var(--danger-red);
+    padding: 15px;
+    background: #e11d48; /* Red for safety-critical action */
     color: white;
     border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 14px 0 rgba(220, 38, 38, 0.39);
-    transition: 0.3s;
 }
-.confirm-btn:hover { background: #b91c1c; transform: scale(1.02); }
+
+.inject-btn:hover { background: #65031b; }
