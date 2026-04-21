@@ -1,4 +1,5 @@
 # Lab 02: Automated Syringe Dose Calculator
+Live Deployment: https://bismalimbada.github.io/HCI-Lab-02/
 ---
 
 ### Student Information
