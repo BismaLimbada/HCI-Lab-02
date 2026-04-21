@@ -2,48 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Safe Syringe Interface</title>
+    <title>Advanced Syringe Controller</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="calculator">
-    <div class="header">
-        <h2>Syringe Controller</h2>
-        <span class="status-badge">System Active</span>
+<div class="main-container">
+    <div class="header-section">
+        <h1>Precision Dose Controller</h1>
+        <p>HCI Safety-Critical Interface</p>
     </div>
-    
-    <p class="instruction">Adjust dosage digit by digit</p>
-    
-    <div class="digit-group">
-        <div class="column">
-            <button class="step" onclick="change(0, 1)">+</button>
-            <div id="d0" class="digit">0</div>
-            <button class="step" onclick="change(0, -1)">−</button>
-        </div>
-        <div class="column">
-            <button class="step" onclick="change(1, 1)">+</button>
-            <div id="d1" class="digit">0</div>
-            <button class="step" onclick="change(1, -1)">−</button>
-        </div>
-        <div class="column">
-            <button class="step" onclick="change(2, 1)">+</button>
-            <div id="d2" class="digit">0</div>
-            <button class="step" onclick="change(2, -1)">−</button>
-        </div>
-        <div class="column">
-            <button class="step" onclick="change(3, 1)">+</button>
-            <div id="d3" class="digit">0</div>
-            <button class="step" onclick="change(3, -1)">−</button>
+
+    <div class="control-card">
+        <h3>Adjust Concentration</h3>
+        <div class="digit-row">
+            <div class="digit-module">
+                <button class="adj-btn plus" onclick="change(0, 1)">+</button>
+                <div id="d0" class="digit-val">0</div>
+                <button class="adj-btn minus" onclick="change(0, -1)">−</button>
+            </div>
+            <div class="digit-module">
+                <button class="adj-btn plus" onclick="change(1, 1)">+</button>
+                <div id="d1" class="digit-val">0</div>
+                <button class="adj-btn minus" onclick="change(1, -1)">−</button>
+            </div>
+            <div class="digit-module">
+                <button class="adj-btn plus" onclick="change(2, 1)">+</button>
+                <div id="d2" class="digit-val">0</div>
+                <button class="adj-btn minus" onclick="change(2, -1)">−</button>
+            </div>
+            <div class="digit-module">
+                <button class="adj-btn plus" onclick="change(3, 1)">+</button>
+                <div id="d3" class="digit-val">0</div>
+                <button class="adj-btn minus" onclick="change(3, -1)">−</button>
+            </div>
         </div>
     </div>
 
-    <div class="total-box">
-        <label>Total Dose (mg)</label>
-        <div id="total">0000</div>
+    <div class="summary-card">
+        <span class="label">FINAL CALCULATED DOSE</span>
+        <div class="dose-display">
+            <span id="total">0000</span> <small>mg</small>
+        </div>
     </div>
-    
-    <button class="confirm-btn" onclick="confirmDose()">Confirm Injection</button>
+
+    <div class="action-card">
+        <button class="confirm-btn" onclick="confirmDose()">
+            CONFIRM & INJECT
+        </button>
+    </div>
 </div>
 
 <script>
@@ -54,7 +61,7 @@
         document.getElementById('total').innerText = digits.join('');
     }
     function confirmDose() {
-        alert("Verify: Injecting " + digits.join('') + " mg?");
+        alert("CRITICAL AUTHORIZATION REQUIRED: Inject " + digits.join('') + "mg now?");
     }
 </script>
 
