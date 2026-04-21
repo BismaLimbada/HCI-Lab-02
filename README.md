@@ -1,4 +1,4 @@
-# Lab 02: Interface Design & Safety-Critical Systems
+# Lab 02: Automated Syringe Dose Calculator
 ---
 
 ### Student Information
